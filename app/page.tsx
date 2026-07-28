@@ -16,6 +16,14 @@ export default function Home() {
       live: "https://mind-mapper-app.vercel.app",
       code: "https://github.com/bahattinbober/visual-feature-mind-mapper",
     },
+    {
+      title: "VadeBekçisi",
+      description:
+        "A B2B SaaS platform for tracking legal renewal deadlines (business registry, insurance, licenses, permits) for SMEs and accounting firms in Turkey. Features multi-tenant architecture with strict data isolation, JWT authentication, automated email notifications via cron, and AI-powered data extraction from unstructured text.",
+      tech: ["Node.js", "Express", "PostgreSQL", "React", "Prisma"],
+      live: "https://vadebekcisi.vercel.app",
+      code: "https://github.com/bahattinbober/vadebekcisi",
+    },
   ];
 
   return (
