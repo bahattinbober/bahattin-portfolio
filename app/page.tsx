@@ -1,6 +1,14 @@
 export default function Home() {
   const projects = [
     {
+      title: "NOD — Job Matching Platform",
+      description:
+        "A job matching platform that turns an uploaded CV into an embedding and ranks postings by cosine similarity using pgvector, then surfaces which of the user's LinkedIn connections work at those companies and drafts a referral message tailored to the person and the role. PDF parsing and embedding generation run on a BullMQ queue rather than in the request. Infrastructure is defined as 36 AWS resources in Terraform; the live demo runs on Railway and Vercel.",
+      tech: ["NestJS", "PostgreSQL", "pgvector", "Redis", "BullMQ", "Next.js", "Three.js", "Terraform"],
+      live: "https://bahattinbober.com",
+      code: "https://github.com/bahattinbober/job-platform-backend",
+    },
+    {
       title: "Student Planner",
       description:
         "A lightweight student planning app to track exams, assignments, and upcoming tasks with search, filters, localStorage persistence, and JSON export/import.",
@@ -32,7 +40,7 @@ export default function Home() {
         <header className="space-y-4">
           <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-slate-600">
             <span className="h-2 w-2 rounded-full bg-emerald-500" />
-            Available for internship / junior roles
+            Open to backend and full-stack roles
           </div>
 
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
@@ -40,8 +48,10 @@ export default function Home() {
           </h1>
 
           <p className="max-w-2xl text-slate-600">
-            Computer Engineering student focused on frontend development (React /
-            Next.js) and building practical web apps.
+            Computer Engineering graduate. I build full-stack web applications
+            — most recently a job matching platform running on NestJS,
+            PostgreSQL with pgvector, and a BullMQ job queue, with
+            infrastructure defined in Terraform.
           </p>
 
           <div className="flex flex-wrap gap-3 pt-2">
