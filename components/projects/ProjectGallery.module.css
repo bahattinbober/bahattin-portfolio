@@ -1,0 +1,244 @@
+.section {
+  position: relative;
+  background: linear-gradient(to bottom, #05070d 0%, #060811 100%);
+}
+
+.sectionHead {
+  position: relative;
+  /* Real content — stays above the ParticleField canvas (z-index:1).
+     isolation:isolate makes this its own unambiguous stacking root,
+     independent of anything an ancestor might do. */
+  isolation: isolate;
+  z-index: 2;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(4rem, 11vh, 7.5rem) clamp(1.25rem, 6vw, 4rem) clamp(2.5rem, 6vh, 4rem);
+}
+
+.kicker {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--accent-cyan);
+  margin-bottom: 1rem;
+}
+
+.sectionTitle {
+  font-size: clamp(2.4rem, 6.5vw, 5rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  max-width: 16ch;
+}
+
+/* --- one project block --- */
+
+.block {
+  position: relative;
+  /* Real content (photos, text, CTAs) — stays above the ParticleField
+     canvas (z-index:1). isolation:isolate makes this its own unambiguous
+     stacking root, independent of anything an ancestor might do. */
+  isolation: isolate;
+  z-index: 2;
+  border-top: 1px solid var(--line);
+  padding: clamp(3rem, 8vh, 6rem) clamp(1.25rem, 6vw, 4rem);
+  /* Keeps the fixed nav bar from covering the top of the block when a hero
+     card's scrollIntoView() (or any #gallery-stop-* anchor jump) lands here. */
+  scroll-margin-top: 88px;
+}
+
+.block:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.blockInner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.blockInner.reverse {
+  direction: rtl;
+}
+.blockInner.reverse > * {
+  direction: ltr;
+}
+
+.mediaCol {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: #0a0d16;
+  border: 1px solid var(--line);
+}
+
+.mediaPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mediaPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(155deg, var(--accent, var(--accent-cyan)) 0%, var(--accent-2, #05070d) 55%, #05070d 100%);
+}
+
+.mediaPlaceholderLabel {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: rgba(5, 7, 13, 0.65);
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.textCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.indexRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  margin-bottom: 1.1rem;
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--accent, var(--accent-cyan));
+  letter-spacing: 0.05em;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.06em;
+}
+
+.title {
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 1.1rem;
+  max-width: 16ch;
+}
+
+.desc {
+  color: var(--ink-dim);
+  font-size: 1rem;
+  line-height: 1.68;
+  max-width: 52ch;
+}
+
+.metric {
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: var(--accent, var(--accent-cyan));
+}
+
+.vizInset {
+  margin-top: 1.4rem;
+  padding: 1.1rem;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.vizInset :global(.viz-svg) {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+}
+
+.techRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.4rem 0 1.5rem;
+}
+
+.techPill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-dim);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.32rem 0.7rem;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.ctaPrimary,
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.7rem 1.2rem;
+  text-decoration: none;
+  transition: transform 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
+}
+
+.ctaPrimary {
+  background: var(--accent, var(--accent-cyan));
+  color: #04121c;
+}
+.ctaPrimary:hover {
+  transform: translateY(-2px);
+}
+
+.ctaSecondary {
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+}
+.ctaSecondary:hover {
+  border-color: var(--accent, var(--accent-cyan));
+  transform: translateY(-2px);
+}
+
+.pending {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 860px) {
+  .blockInner,
+  .blockInner.reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+  .mediaCol {
+    aspect-ratio: 16 / 10;
+  }
+}

@@ -1,0 +1,149 @@
+.section {
+  padding: clamp(3.5rem, 9vh, 6rem) clamp(1.25rem, 6vw, 4rem);
+  background: #05070d;
+}
+
+.frame {
+  position: relative;
+  /* Real content — stays above the ParticleField canvas (z-index:1). */
+  isolation: isolate;
+  z-index: 2;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.kicker {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--accent-cyan);
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 2.5rem;
+  max-width: 20ch;
+}
+
+.focusGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+  margin-bottom: 2.75rem;
+}
+
+.focusCard {
+  height: 100%;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.4rem;
+}
+
+.focusLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.7rem;
+  display: inline-block;
+}
+
+.focusExploring { color: #a78bfa; }
+.focusBuilding { color: var(--accent-cyan); }
+.focusEvaluating { color: var(--accent-amber); }
+
+.focusText {
+  color: var(--ink-dim);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.feedHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.feedTitle {
+  font-size: 0.9rem;
+  color: var(--ink-dim);
+  font-family: var(--font-mono);
+}
+
+.feedList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.feedItem {
+  background: #05070e;
+  padding: 1.15rem 1.25rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: background-color 0.25s var(--ease-out);
+}
+
+.feedItem:hover {
+  background: #090c18;
+}
+
+.feedName {
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.feedDesc {
+  color: var(--ink-faint);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.feedMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink-faint);
+  margin-top: 0.2rem;
+}
+
+.langDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--accent-cyan);
+}
+
+.empty {
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+  padding: 1.5rem;
+}
+
+@media (max-width: 760px) {
+  .focusGrid {
+    grid-template-columns: 1fr;
+  }
+}

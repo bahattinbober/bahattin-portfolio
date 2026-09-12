@@ -1,0 +1,98 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  isolation: isolate;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem clamp(1.25rem, 4vw, 3rem);
+  transition: background-color 0.4s var(--ease-out), border-color 0.4s var(--ease-out), backdrop-filter 0.4s var(--ease-out);
+  border-bottom: 1px solid transparent;
+}
+
+.nav.solid {
+  background: rgba(5, 7, 13, 0.78);
+  backdrop-filter: blur(14px);
+  border-bottom-color: var(--line);
+}
+
+.mark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.25rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+.links a {
+  text-decoration: none;
+  color: var(--ink-dim);
+  transition: color 0.25s var(--ease-out);
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.links a:hover {
+  color: var(--ink);
+}
+
+.links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1px;
+  background: var(--accent-cyan);
+  transition: width 0.3s var(--ease-out);
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+.cv {
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color 0.25s var(--ease-out), background-color 0.25s var(--ease-out);
+  white-space: nowrap;
+}
+
+.cv:hover {
+  border-color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+@media (max-width: 720px) {
+  .links {
+    gap: 0.85rem;
+    font-size: 0.72rem;
+  }
+  .cv {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.7rem;
+  }
+  .mark {
+    font-size: 0.75rem;
+  }
+}

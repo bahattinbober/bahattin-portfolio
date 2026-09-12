@@ -1,0 +1,66 @@
+.rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: clamp(0.75rem, 2.4vw, 2rem);
+  width: 2px;
+  /* Above the ParticleField canvas (z-index:1) — real content stays above
+     the particle layer, the particle layer stays above section backgrounds. */
+  isolation: isolate;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--line-strong) 6%,
+    var(--line-strong) 94%,
+    transparent 100%
+  );
+}
+
+.stop {
+  position: absolute;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--stop-color, var(--accent-cyan));
+  transform: translate(-3px, -3px);
+  box-shadow: 0 0 6px var(--stop-color, var(--accent-cyan));
+  opacity: 0.85;
+}
+
+.indicator {
+  position: absolute;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  margin-left: -4.5px;
+  margin-top: -4.5px;
+  border-radius: 999px;
+  z-index: 5;
+  background: var(--accent-cyan);
+}
+
+.wrap {
+  opacity: 0;
+  transition: opacity 1s var(--ease-out);
+}
+
+.wrap.visible {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .rail {
+    display: none;
+  }
+}

@@ -1,21 +1,39 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Unbounded, Inter, JetBrains_Mono } from "next/font/google";
+import ParticleField from "@/components/cursor/ParticleField";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const unbounded = Unbounded({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const inter = Inter({
+  variable: "--font-body",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "Bahattin Bober — Full-Stack Developer",
+  metadataBase: new URL("https://bahattinbober.com"),
+  title: "Bahattin Böber — Full-Stack & AI/ML Mühendisi",
   description:
-    "Bahattin Bober — Computer Engineering graduate building full-stack web applications.",
+    "Bahattin Böber'in portfolyosu: gerçek proje fotoğrafları, canlı GitHub verisi ve gerçek zamanlı performans kanıtıyla anlatılan bir mühendislik hikâyesi.",
+  openGraph: {
+    title: "Bahattin Böber — Full-Stack & AI/ML Mühendisi",
+    description:
+      "Gerçek proje fotoğrafları, canlı GitHub verisi ve gerçek zamanlı performans kanıtıyla anlatılan bir mühendislik hikâyesi.",
+    url: "https://bahattinbober.com",
+    siteName: "Bahattin Böber",
+    locale: "tr_TR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -24,10 +42,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="tr">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${unbounded.variable} ${inter.variable} ${jetbrainsMono.variable}`}
       >
+        <ParticleField />
         {children}
       </body>
     </html>

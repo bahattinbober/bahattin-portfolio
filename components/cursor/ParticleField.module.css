@@ -1,0 +1,44 @@
+.canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Sits just above each section's own (unstacked, z-index:auto) background
+     color/gradient, so the dust is visible over those — but below every
+     actual content layer (photos, cards, text, nav), which are explicitly
+     given z-index >= 2 for exactly this reason. See each section's CSS for
+     its own content-wrapper's z-index. */
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Replacement cursor marker — crisp, sits exactly on the real pointer,
+   separate from the blurry lagging cluster on the canvas. Hidden by
+   default; only shown where a real mouse-like pointer exists, matching the
+   `(pointer: fine)` gate the JS itself uses to skip touch devices. */
+.cursorDot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow:
+    0 0 6px 1px rgba(255, 255, 255, 0.95),
+    0 0 14px 4px rgba(255, 255, 255, 0.45);
+  pointer-events: none;
+  /* Above Nav (z-index:100) — this fully replaces the system cursor, so it
+     has to stay visible even over the top navigation chrome. */
+  isolation: isolate;
+  z-index: 200;
+  display: none;
+}
+
+@media (pointer: fine) {
+  .cursorDot {
+    display: block;
+  }
+}
